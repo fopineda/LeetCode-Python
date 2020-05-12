@@ -25,7 +25,7 @@ class Solution(object):
         # The left side of the array is sent into the recursive call as the new nums array
         root.left = self.sortedArrayToBST(nums[0:rootIndex])
         
-        # set the rught of the current element to the results of the recursive call
+        # set the right of the current element to the results of the recursive call
         # The right side of the array is sent into the recursive call as the new nums array
         root.right = self.sortedArrayToBST(nums[rootIndex+1:])
         
@@ -34,5 +34,15 @@ class Solution(object):
         # left: [-10, -3] <- recurse in to out so -3 then -10
         # right: [5, 9] <- recurse out to in so 9 then 5
         
+        #.              |
+        # [-10, -3, -1, 0, 5, 9, 10]
+        # root: 0
+        #.             |
+        # left: [-10, -3, -1] <- root will be -3 and its left will be -10 and right -1
+        #.           |
+        # right: [5, 9, 10] <- root will be 9 and its left will be 9 and right 10
+        
+        # it initially finds the root (middle) of the given array and then in the future recursive call it finds the roots of the left and right sub arrays and so on
+        # please reference above examples
         
         return root
